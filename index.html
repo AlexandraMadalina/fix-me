@@ -63,11 +63,6 @@
                }
               
             }
-
-
-           
-           
-
         </script>
     </div>
     <!-- END OF Part 1 -->
@@ -109,6 +104,26 @@
         </div>
         <script>
             // Write your code here
+            document.getElementById("emptyRow").addEventListener("keydown", enter);
+
+            function enter(){
+                if(event.key == "Enter"){
+                    var name = document.getElementById("name").value;
+                    var pizza = document.getElementById("pizza").value;
+                    var size = document.getElementById("size").value;
+                    var remarks = document.getElementById("remarks").value;
+                if(name&&pizza&&size){
+                    alert("Good job!");
+
+                }
+                        
+                    
+
+
+                }
+            }
+
+
         </script>
     </div>
     <!-- END OF Part 2 -->
