@@ -14,3 +14,15 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 - Read the instructions and solve all the exercises in there
 - Save & publish it in a repository called `starting-javascript`
 - Show us the end result (send us a pm with the link to the github published page)
+
+## Thinks I learned
+
+ When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
+
+ ### Documentation
+
+ [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+
+ [oninput Event](https://www.w3schools.com/jsref/event_oninput.asp)
+
+ 
