@@ -15,6 +15,36 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 - Save & publish it in a repository called `starting-javascript`
 - Show us the end result (send us a pm with the link to the github published page)
 
+## My approach
+
+- Step 2
+    + After the user inputs his data and press enter,  `keydown`  event will trigger `function enter()`.
+    This function declares 4 variables ( name, pizza, size, remarks) witch holds the user's data.Then the program checks if key enter was pressed with `if (event.key == "Enter") ` condition. If the user has filled at least the name, pizza and size inputs,  the program calls `createRow()`. 
+
+    + ```
+    function enter() {
+
+                    var name = document.getElementById("name").value;
+                    var pizza = document.getElementById("pizza").value;
+                    var size = document.getElementById("size").value;
+                    var remarks = document.getElementById("remarks").value;
+
+
+                    if (event.key == "Enter") {
+
+                        if (name && pizza && size) {
+
+                            createRow();
+                        }else{
+                            alert("Please provide more informations");
+                        }
+
+                    }
+
+                }
+    ```
+    + When function createRow() is called, the program inserts a row under the first one and 4 cell. When function createRow() is called, the program inserts a row under the first one and 4 cells. The program copies the content from the cell with the same index , on the last row ( user's data), and paste it in the new cell.  `row.insertCell(i).innerHTML = input[i].value;` where inptu[i] holds the user's data.
+
 ## Thinks I learned
 
  When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
