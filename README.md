@@ -17,7 +17,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
 ## My approach
 
-- Step 2
+- **Step 2**
     + After the user inputs his data and press enter,  `keydown`  event will trigger `function enter()`.
     This function declares 4 variables ( name, pizza, size, remarks) which holds the user's data.Then the program checks if key enter was pressed with `if (event.key == "Enter") ` condition. If the user has filled at least the name, pizza and size inputs,  the program calls `createRow()`. 
 
