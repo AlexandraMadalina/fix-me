@@ -43,8 +43,24 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
                 }
     ```
-    + When function createRow() is called, the program inserts a row under the first one and 4 cell. When function createRow() is called, the program inserts a row under the first one and 4 cells. The program copies the content from the cell with the same index , on the last row ( user's data), and paste it in the new cell.  `row.insertCell(i).innerHTML = input[i].value;` where inptu[i] holds the user's data.
+    + When function createRow() is called, the program inserts a row under the first one and 4 cells. The program copies the content from the cell with the same index , on the last row ( user's data), and paste it in the new cell.  `row.insertCell(i).innerHTML = input[i].value;` where inptu[i] holds the user's data.
+```
+function createRow() {
+                    input = document.getElementById("emptyRow").getElementsByTagName("input");
 
+                    var table = document.getElementById("pizzaOrders");
+
+                    var rowNumber = table.rows.length;
+                    console.log(rowNumber);
+                    var row = table.insertRow(rowNumber - 1);
+
+                    for (let i = 0; i < 4; ++i) {
+                        row.insertCell(i).innerHTML = input[i].value;
+                    }
+
+
+                }
+```
 ## Thinks I learned
 
  When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
