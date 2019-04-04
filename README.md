@@ -19,7 +19,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
 - Step 2
     + After the user inputs his data and press enter,  `keydown`  event will trigger `function enter()`.
-    This function declares 4 variables ( name, pizza, size, remarks) witch holds the user's data.Then the program checks if key enter was pressed with `if (event.key == "Enter") ` condition. If the user has filled at least the name, pizza and size inputs,  the program calls `createRow()`. 
+    This function declares 4 variables ( name, pizza, size, remarks) which holds the user's data.Then the program checks if key enter was pressed with `if (event.key == "Enter") ` condition. If the user has filled at least the name, pizza and size inputs,  the program calls `createRow()`. 
 
     ```
     function enter() {
@@ -63,7 +63,13 @@ function createRow() {
 ```
 ## Thinks I learned
 
- When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
+     + When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
+
+    + To create a new [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent), use the [KeyboardEvent()](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/KeyboardEvent) constructor.
+
+    + You can use [insertRow() method](https://www.w3schools.com/jsref/met_table_insertrow.asp) and [TableRow insertCell() method](https://www.w3schools.com/jsref/met_tablerow_insertcell.asp) to create new rows and cell in a table.
+
+    + To check which key triggered the event use [KeyboardEvent Properties](https://www.w3schools.com/jsref/obj_keyboardevent.asp).
 
  ### Documentation
 
