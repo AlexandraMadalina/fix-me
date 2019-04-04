@@ -130,34 +130,34 @@
                     var pizza = document.getElementById("pizza").value;
                     var size = document.getElementById("size").value;
                     var remarks = document.getElementById("remarks").value;
-
-
                     if (event.key == "Enter") {
-
                         if (name && pizza && size) {
-
                             createRow();
-                        }else{
+                        } else {
                             alert("Please provide more informations");
                         }
-
                     }
-
                 }
 
                 function createRow() {
                     input = document.getElementById("emptyRow").getElementsByTagName("input");
-
                     var table = document.getElementById("pizzaOrders");
-
                     var rowNumber = table.rows.length;
-                    console.log(rowNumber);
                     var row = table.insertRow(rowNumber - 1);
-
                     for (let i = 0; i < 4; ++i) {
                         row.insertCell(i).innerHTML = input[i].value;
+                        input[i].value = "";
                     }
+                
+                    var cross = row.insertCell(row.cells.length).innerHTML =
+                    '<i class="fas fa-times" id = "cross"></i>';
+                    document.getElementById("cross").addEventListener("click", deletRow);
+                 }
 
+
+                function deletRow(obj) {
+                    console.dir(obj);
+                    document.getElementById("pizzaOrders").deleteRow(obj.target.parentNode.parentNode.rowIndex);
 
                 }
             </script>
