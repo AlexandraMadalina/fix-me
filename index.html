@@ -190,8 +190,7 @@
                 // Write your code here
                 var listHolder = document.getElementById("listHolder");
                 var listChild = document.getElementById("listHolder").childNodes;
-
-
+                var choose = document.createElement("input");
                 var ul = document.createElement("ul");
                 let i = listChild.length - 1;
                 while (i > 0) {
@@ -199,19 +198,20 @@
                     li.innerHTML = listChild[i].innerHTML;
                     listChild[i].remove();
                     ul.prepend(li);
-                    if(i==4){
-                        var choose = document.createElement("input");
+                    if (i == 4) {
+
                         choose.placeholder = "Choose your final ingredient";
-                        li.innerHTML ="";
+                        li.innerHTML = "";
                         li.appendChild(choose);
                     }
                     --i;
-
                 }
-
-
-
                 listHolder.appendChild(ul);
+                document.getElementById("launchMe").addEventListener("click", launch);
+
+                function launch() {
+                    var lastIngredien = ul.childNodes[ul.childNodes.length - 1].innerHTML = choose.value;
+                }
             </script>
         </div>
         <!-- END OF Part 3 -->
