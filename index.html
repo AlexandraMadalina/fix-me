@@ -148,10 +148,12 @@
                         row.insertCell(i).innerHTML = input[i].value;
                         input[i].value = "";
                     }
-                
-                    var cross = row.insertCell(row.cells.length).innerHTML =
-                    '<i class="fas fa-times" id = "cross"></i>';
-                    document.getElementById("cross").addEventListener("click", deletRow);
+                    
+                    var icon = document.createElement("i");
+                    icon.classList.add('fas', 'fa-times');
+                    row.insertCell(row.cells.length).appendChild(icon);
+                    icon.addEventListener("click", deletRow);
+                    console.dir(icon);
                  }
 
 

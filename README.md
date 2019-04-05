@@ -21,46 +21,9 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
     + After the user inputs his data and press enter,  `keydown`  event will trigger `function enter()`.
     This function declares 4 variables ( name, pizza, size, remarks) which holds the user's data.Then the program checks if key enter was pressed with `if (event.key == "Enter") ` condition. If the user has filled at least the name, pizza and size inputs,  the program calls `createRow()`. 
 
-    ```
-    function enter() {
 
-                    var name = document.getElementById("name").value;
-                    var pizza = document.getElementById("pizza").value;
-                    var size = document.getElementById("size").value;
-                    var remarks = document.getElementById("remarks").value;
-
-
-                    if (event.key == "Enter") {
-
-                        if (name && pizza && size) {
-
-                            createRow();
-                        }else{
-                            alert("Please provide more informations");
-                        }
-
-                    }
-
-                }
-    ```
     + When function createRow() is called, the program inserts a row under the first one and 4 cells. The program copies the content from the cell with the same index , on the last row ( user's data), and paste it in the new cell.  `row.insertCell(i).innerHTML = input[i].value;` where inptu[i] holds the user's data.
-```
-function createRow() {
-                    input = document.getElementById("emptyRow").getElementsByTagName("input");
-
-                    var table = document.getElementById("pizzaOrders");
-
-                    var rowNumber = table.rows.length;
-                    console.log(rowNumber);
-                    var row = table.insertRow(rowNumber - 1);
-
-                    for (let i = 0; i < 4; ++i) {
-                        row.insertCell(i).innerHTML = input[i].value;
-                    }
-
-
-                }
-```
+    + A fourth cell is created at the end of the row. An 'i' element is created with classes from font awesome and append it to the last cell. The onclick event is added to perform the deleteRow function. This function delets the row of the target.
 
 ## Thinks I learned
 
