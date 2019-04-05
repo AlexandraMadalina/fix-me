@@ -125,7 +125,6 @@
                 document.getElementById("emptyRow").addEventListener("keydown", enter);
 
                 function enter() {
-
                     var name = document.getElementById("name").value;
                     var pizza = document.getElementById("pizza").value;
                     var size = document.getElementById("size").value;
@@ -148,19 +147,14 @@
                         row.insertCell(i).innerHTML = input[i].value;
                         input[i].value = "";
                     }
-                    
                     var icon = document.createElement("i");
                     icon.classList.add('fas', 'fa-times');
                     row.insertCell(row.cells.length).appendChild(icon);
                     icon.addEventListener("click", deletRow);
-                    console.dir(icon);
-                 }
-
+                }
 
                 function deletRow(obj) {
-                    console.dir(obj);
                     document.getElementById("pizzaOrders").deleteRow(obj.target.parentNode.parentNode.rowIndex);
-
                 }
             </script>
         </div>
@@ -194,6 +188,24 @@
             </div>
             <script>
                 // Write your code here
+                var listHolder = document.getElementById("listHolder");
+                var listChild = document.getElementById("listHolder").childNodes;
+
+
+                var ul = document.createElement("ul");
+                let i = listChild.length - 1;
+                while (i > 0) {
+                    var li = document.createElement("li");
+                    li.innerHTML = listChild[i].innerHTML;
+                    listChild[i].remove();
+                    ul.prepend(li);
+                    --i;
+
+                }
+
+
+
+                listHolder.appendChild(ul);
             </script>
         </div>
         <!-- END OF Part 3 -->
