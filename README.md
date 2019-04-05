@@ -23,7 +23,11 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
 
     + When function createRow() is called, the program inserts a row under the first one and 4 cells. The program copies the content from the cell with the same index , on the last row ( user's data), and paste it in the new cell.  `row.insertCell(i).innerHTML = input[i].value;` where inptu[i] holds the user's data.
-    + A fourth cell is created at the end of the row. An 'i' element is created with classes from font awesome and append it to the last cell. The onclick event is added to perform the deleteRow function. This function delets the row of the target.
+    + A fourth cell is created at the end of the row. An 'i' element is created with classes from font awesome and append it to the last cell. The onclick event is added to perform the deleteRow function. This function delets  the target's row.
+
+  - **Step 3**
+  + To fix the list the program selects the childNodes of the p element with the id list Holder, and save it in a array called listChild. Then it creates a ul element. For every element in the array ( except the first one) the program creates a li element and copies it's content starting from the end of the array.
+  + to add a input element at the end of the list, the program will make an exception for the li element on the last position, and a input childNode;
 
 ## Thinks I learned
 
