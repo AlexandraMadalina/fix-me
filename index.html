@@ -199,7 +199,6 @@
                     listChild[i].remove();
                     ul.prepend(li);
                     if (i == 4) {
-
                         choose.placeholder = "Choose your final ingredient";
                         li.innerHTML = "";
                         li.appendChild(choose);
@@ -210,8 +209,12 @@
                 document.getElementById("launchMe").addEventListener("click", launch);
 
                 function launch() {
-                    var lastIngredien = ul.childNodes[ul.childNodes.length - 1].innerHTML = choose.value;
+                    if(choose.value!=""){
+                        ul.childNodes[ul.childNodes.length - 1].innerHTML = choose.value;
+                    }
+                   
                 }
+                choose.addEventListener("blur", launch);
             </script>
         </div>
         <!-- END OF Part 3 -->

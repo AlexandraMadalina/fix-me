@@ -26,8 +26,9 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
     + A fourth cell is created at the end of the row. An 'i' element is created with classes from font awesome and append it to the last cell. The onclick event is added to perform the deleteRow function. This function delets  the target's row.
 
   - **Step 3**
-  + To fix the list the program selects the childNodes of the p element with the id list Holder, and save it in a array called listChild. Then it creates a ul element. For every element in the array ( except the first one) the program creates a li element and copies it's content starting from the end of the array.
-  + to add a input element at the end of the list, the program will make an exception for the li element on the last position, and a input childNode;
+  + To fix the list the program creates an ul element. For every li element added, it copies the text of the existing item and removes the item.
+  + To add a input element at the end of the list, the program will make an exception for the li element on the last position, and append an input element.
+  + To launch the user's data when the button is clicked, the onclick event changes the content of the last list with the value of the  input. To have the same effect when the user clicks outside the input field, I used the blur event for that input.
 
 ## Thinks I learned
 
@@ -38,6 +39,8 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
    - You can use [insertRow() method](https://www.w3schools.com/jsref/met_table_insertrow.asp) and [TableRow insertCell() method](https://www.w3schools.com/jsref/met_tablerow_insertcell.asp) to create new rows and cell in a table.
 
    - To check which key triggered the event use [KeyboardEvent Properties](https://www.w3schools.com/jsref/obj_keyboardevent.asp).
+
+   - Use the [blur event](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) to detect when an element has lost focus.
 
  ### Documentation
 
