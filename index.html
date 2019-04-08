@@ -200,19 +200,21 @@
                     ul.prepend(li);
                     if (i == 4) {
                         choose.placeholder = "Choose your final ingredient";
+
                         li.innerHTML = "";
                         li.appendChild(choose);
                     }
                     --i;
                 }
                 listHolder.appendChild(ul);
+
                 document.getElementById("launchMe").addEventListener("click", launch);
 
                 function launch() {
-                    if(choose.value!=""){
+                    if (choose.value != "") {
                         ul.childNodes[ul.childNodes.length - 1].innerHTML = choose.value;
                     }
-                   
+
                 }
                 choose.addEventListener("blur", launch);
             </script>
@@ -403,6 +405,42 @@
             </div>
             <script>
                 // Write your code here
+                document.getElementById("searchInput").addEventListener("input", function () {
+                    var searchInput = document.getElementById("searchInput").value.toUpperCase();
+                    var searchTable = document.getElementById("searchTable");
+                    var rowNo = searchTable.rows.length;
+                    var cellNo = searchTable.rows[1].cells.length;
+                    for (let i = 1; i < rowNo; ++i) {
+                        var flag = false;
+                        for (let j = 0; j < cellNo; ++j) {
+                            if (searchTable.rows[i].cells[j].innerText.toUpperCase().indexOf(searchInput) > -
+                                1) {
+                                flag = true;
+                            }
+                            if (flag) {
+                                searchTable.rows[i].style.display = "";
+                            } else {
+                                searchTable.rows[i].style.display = "none";
+                            }
+                        }
+                    }
+
+
+                })
+
+
+                /*for (let j = 0; j < cellNo; ++j) {
+
+
+
+                    if (searchTable.rows[i].cells[j].innerText.toUpperCase().indexOf(searchInput) > -1) {
+                        searchTable.rows[i].style.display = "block";
+
+                    } else {
+                        searchTable.rows[i].style.display = "none";
+                    }
+
+                }*/
             </script>
         </div>
         <!-- END OF Part 4 -->
