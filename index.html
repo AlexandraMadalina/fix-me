@@ -503,7 +503,6 @@
                     }, 2020);
                 }
                 window.onload = moveRight(greenBox);
-                
             </script>
         </div>
         <!-- END OF Part 5 -->
@@ -521,6 +520,29 @@
             </div>
             <script>
                 // Write your code here
+                var tracker = document.getElementById("followMouse");
+                var trackerParrent = tracker.parentNode;
+                var mouse = {
+                    x: 0
+                };
+
+                var trackerPos = {
+                    x: 0
+                };
+
+                trackerParrent.addEventListener("mousemove", getMouse);
+
+                function getMouse(e) {
+                    mouse.x = e.pageX;
+                }
+                requestAnimationFrame(followMouse);
+
+                function followMouse() {
+                    var distX = mouse.x - trackerPos.x;
+                    trackerPos.x += distX / 5;
+                    tracker.style.left = trackerPos.x + "px";
+                    requestAnimationFrame(followMouse);
+                }
             </script>
         </div>
         <!-- END OF Part 6 -->

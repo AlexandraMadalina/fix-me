@@ -42,6 +42,10 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
   + To move the box to the right in 2 sec an to the left in 5 sec, I used property. I have 2 functions that calls each other. First function wait 5 seconds and move the box to the right, and the second function waits about 2 seconds and moves the box to the left.  Even though the move to left function starts exactly when the previous animation has ended, I added 20 miliseconds extra, to look more obviously.
 
+### Step 6
+
+  + To make the box follow the mouse horizontally, I added mousemove event to the box parent. This event updates the mouse position. Using requestAnimationFrame I calculate the distance between the mouse and the box and add it to the box.
+
 ## Thinks I learned
 
   - When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
@@ -57,6 +61,8 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
    - Use [<input type="checkbox">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) to create a checkbox. You can use [label htmlFor Property](https://www.w3schools.com/jsref/prop_label_htmlfor.asp) to specifie which form element a label is bound to.
 
    - To delete cells the tableRow [deleteCell()](https://www.w3schools.com/jsref/met_tablerow_deletecell.asp) method comes in handy.
+
+   - The [pageX](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageX) read-only property of the MouseEvent interface returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked.
 
 
 
@@ -76,4 +82,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
  [How to highlight text using javascript](https://stackoverflow.com/questions/8644428/how-to-highlight-text-using-javascript)
 
  [JavaScript String Reference](https://www.w3schools.com/jsref/jsref_obj_string.asp).
+
+ [Follow Mouse with Easing & Direction](https://codepen.io/redspiderfish/pen/MYmeYz);
+ 
 
