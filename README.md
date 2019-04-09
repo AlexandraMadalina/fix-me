@@ -30,6 +30,10 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
   + To add a input element at the end of the list, the program will make an exception for the li element on the last position, and append an input element.
   + To launch the user's data when the button is clicked, the onclick event changes the content of the last list with the value of the  input. To have the same effect when the user clicks outside the input field, I used the blur event for that input.
 
+  - **Step 4**
+  + For the filter, starting from the second row, the program will search in every cell the index of the inputted string. Before the search, a variable named "flag" is initialized with the value false. If such index is found, the flag will be true. At the end of the row, if the flag is true, the row will keep it's display property value, if not, this value will be set to "none".
+  + To highlight the found text, the innerHTML of the cell will have a span element wrapping the inputted text.
+
 ## Thinks I learned
 
   - When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
@@ -50,3 +54,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
  [keycode.info/](https://keycode.info/)
  [Table insertRow() Method](https://www.w3schools.com/jsref/met_table_insertrow.asp)
+ [How TO - Filter/Search Table](https://www.w3schools.com/howto/howto_js_filter_table.asp)
+ [How to highlight text using javascript](https://stackoverflow.com/questions/8644428/how-to-highlight-text-using-javascript)
+ [JavaScript String Reference](https://www.w3schools.com/jsref/jsref_obj_string.asp).
+
