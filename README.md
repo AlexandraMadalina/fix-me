@@ -39,6 +39,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
   + For the check box I created an input element, type checkbox, and a label element for that input. The text of the cell is appended to the label. The text of the cell is removed an the input and label are appended. A [change](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) event is added to the input. In this event, all the cells in the same column are deleted.
 
 ### Step 5
+
   + To move the box to the right in 2 sec an to the left in 5 sec, I used property. I have 2 functions that calls each other. First function wait 5 seconds and move the box to the right, and the second function waits about 2 seconds and moves the box to the left.  Even though the move to left function starts exactly when the previous animation has ended, I added 20 miliseconds extra, to look more obviously.
 
 ## Thinks I learned

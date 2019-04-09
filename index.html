@@ -485,11 +485,10 @@
                 var moved = false;
 
                 function moveRight(obj) {
-                   
+                    setTimeout(function () {
                         obj.style.transition = "all 2s";
                         obj.style.transitionTimingFunction = "linear"
                         obj.style.left = "100%";
-                        setTimeout(function () {
                         moveLeft(obj);
                     }, 5000);
                 }
@@ -504,7 +503,7 @@
                     }, 2020);
                 }
                 window.onload = moveRight(greenBox);
-
+                
             </script>
         </div>
         <!-- END OF Part 5 -->
