@@ -443,8 +443,10 @@
 
 
                 document.getElementById("searchInput").addEventListener("input", function () {
+                    searchTable = document.getElementById("searchTable");
+                    rowNo = searchTable.rows.length;
+                    cellNo = searchTable.rows[0].cells.length;
                     var searchInput = document.getElementById("searchInput").value;
-                    
                     for (let i = 1; i < rowNo; ++i) {
                         var flag = false;
                         for (let j = 0; j < cellNo; ++j) {
