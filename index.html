@@ -483,17 +483,15 @@
 
                 var greenBox = document.getElementById("moveAnimation");
                 var moved = false;
+
                 function moveRight(obj) {
-                    setTimeout(function () {
+                   
                         obj.style.transition = "all 2s";
                         obj.style.transitionTimingFunction = "linear"
                         obj.style.left = "100%";
-                        moved = true;
-                        if (moved == true) {
-                            moveLeft(obj)
-                        }
+                        setTimeout(function () {
+                        moveLeft(obj);
                     }, 5000);
-
                 }
 
                 function moveLeft(obj) {
@@ -501,26 +499,12 @@
                         obj.style.transition = "all 5s";
                         obj.style.transitionTimingFunction = "linear"
                         obj.style.left = "0%";
-                        moved = false;
-                        if (moved == false) {
-                            moveRight(obj);
-                        }
+                        moveRight(obj);
+
                     }, 2020);
-
-
                 }
-
-
-                /*function updateTransition(){
-
-                 
-                if(moved == false){
-                     moveRight(greenBox);
-                 }else{
-                     moveLeft(greenBox);
-                 }
-                }*/
                 window.onload = moveRight(greenBox);
+
             </script>
         </div>
         <!-- END OF Part 5 -->
