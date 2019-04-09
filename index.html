@@ -405,6 +405,30 @@
             </div>
             <script>
                 // Write your code here
+
+
+                var searchTable = document.getElementById("searchTable");
+                var cellNo = searchTable.rows[0].cells.length;
+                for (let i = 0; i < cellNo; ++i) {
+                    console.dir(searchTable.rows[0].cells[i]);
+                    makeCheckBox(searchTable.rows[0].cells[i]);
+                }
+
+                function makeCheckBox(obj) {
+                    var text = obj.innerText;
+                    var checkbox = document.createElement("input");
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'check';
+                    checkbox.checked = true;
+                    var label = document.createElement('label');
+                    label.htmlFor = 'check';
+                    label.appendChild(document.createTextNode(text));
+                    obj.removeChild(obj.childNodes[0]);
+                    obj.appendChild(checkbox);
+                    obj.appendChild(label)
+                }
+
+
                 document.getElementById("searchInput").addEventListener("input", function () {
                     var searchInput = document.getElementById("searchInput").value;
                     var searchTable = document.getElementById("searchTable");
@@ -417,14 +441,11 @@
                             var start = cellText.toUpperCase().indexOf(searchInput.toUpperCase());
                             if (start > -1) {
                                 flag = true;
-                                //var inputSize = searchInput.length;
                                 var end = start + searchInput.length;
                                 var replace = cellText.substring(start, end);
-                                console.log(start);
-                                console.log(end);
-                                console.log(replace );
                                 searchTable.rows[i].cells[j].innerHTML = cellText.substr(0, start) +
-                                    '<span style = "background-color: yellow">' + replace + "</span>" + cellText.substr(end, cellText.leng);
+                                    '<span style = "background-color: yellow">' + replace + "</span>" + cellText
+                                    .substr(end, cellText.leng);
                             }
 
                         }

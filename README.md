@@ -55,7 +55,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
  [oninput Event](https://www.w3schools.com/jsref/event_oninput.asp)
 
- [keycode.info/](https://keycode.info/)
+ [keycode.info](https://keycode.info/)
 
  [Table insertRow() Method](https://www.w3schools.com/jsref/met_table_insertrow.asp)
 
