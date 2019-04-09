@@ -408,10 +408,12 @@
 
 
                 var searchTable = document.getElementById("searchTable");
+                var rowNo = searchTable.rows.length;
                 var cellNo = searchTable.rows[0].cells.length;
                 for (let i = 0; i < cellNo; ++i) {
-                    console.dir(searchTable.rows[0].cells[i]);
+
                     makeCheckBox(searchTable.rows[0].cells[i]);
+
                 }
 
                 function makeCheckBox(obj) {
@@ -420,20 +422,29 @@
                     checkbox.type = 'checkbox';
                     checkbox.id = 'check';
                     checkbox.checked = true;
+                    checkbox.addEventListener("change", deleteColumn);
                     var label = document.createElement('label');
                     label.htmlFor = 'check';
                     label.appendChild(document.createTextNode(text));
                     obj.removeChild(obj.childNodes[0]);
                     obj.appendChild(checkbox);
-                    obj.appendChild(label)
+                    obj.appendChild(label);
+                }
+
+
+
+
+
+                function deleteColumn(e) {
+                    for (let i = searchTable.rows.length - 1; i >= 0; --i) {
+                        searchTable.rows[i].deleteCell(e.target.parentNode.cellIndex);
+                    }
                 }
 
 
                 document.getElementById("searchInput").addEventListener("input", function () {
                     var searchInput = document.getElementById("searchInput").value;
-                    var searchTable = document.getElementById("searchTable");
-                    var rowNo = searchTable.rows.length;
-                    var cellNo = searchTable.rows[1].cells.length;
+                    
                     for (let i = 1; i < rowNo; ++i) {
                         var flag = false;
                         for (let j = 0; j < cellNo; ++j) {
