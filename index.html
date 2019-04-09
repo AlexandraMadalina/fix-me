@@ -406,41 +406,38 @@
             <script>
                 // Write your code here
                 document.getElementById("searchInput").addEventListener("input", function () {
-                    var searchInput = document.getElementById("searchInput").value.toUpperCase();
+                    var searchInput = document.getElementById("searchInput").value;
                     var searchTable = document.getElementById("searchTable");
                     var rowNo = searchTable.rows.length;
                     var cellNo = searchTable.rows[1].cells.length;
                     for (let i = 1; i < rowNo; ++i) {
                         var flag = false;
                         for (let j = 0; j < cellNo; ++j) {
-                            if (searchTable.rows[i].cells[j].innerText.toUpperCase().indexOf(searchInput) > -
-                                1) {
+                            var cellText = searchTable.rows[i].cells[j].innerText;
+                            var start = cellText.toUpperCase().indexOf(searchInput.toUpperCase());
+                            if (start > -1) {
                                 flag = true;
+                                //var inputSize = searchInput.length;
+                                var end = start + searchInput.length;
+                                var replace = cellText.substring(start, end);
+                                console.log(start);
+                                console.log(end);
+                                console.log(replace );
+                                searchTable.rows[i].cells[j].innerHTML = cellText.substr(0, start) +
+                                    '<span style = "background-color: yellow">' + replace + "</span>" + cellText.substr(end, cellText.leng);
                             }
-                            if (flag) {
-                                searchTable.rows[i].style.display = "";
-                            } else {
-                                searchTable.rows[i].style.display = "none";
-                            }
+
+                        }
+                        if (flag) {
+                            searchTable.rows[i].style.display = "";
+
+                        } else {
+                            searchTable.rows[i].style.display = "none";
                         }
                     }
 
 
                 })
-
-
-                /*for (let j = 0; j < cellNo; ++j) {
-
-
-
-                    if (searchTable.rows[i].cells[j].innerText.toUpperCase().indexOf(searchInput) > -1) {
-                        searchTable.rows[i].style.display = "block";
-
-                    } else {
-                        searchTable.rows[i].style.display = "none";
-                    }
-
-                }*/
             </script>
         </div>
         <!-- END OF Part 4 -->
