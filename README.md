@@ -36,6 +36,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
   + For the filter, starting from the second row, the program will search in every cell the index of the inputted string. Before the search, a variable named "flag" is initialized with the value false. If such index is found, the flag will be true. At the end of the row, if the flag is true, the row will keep it's display property value, if not, this value will be set to "none".
   + To highlight the found text, the innerHTML of the cell will have a span element wrapping the inputted text.
+  + For the check box I created an input element, type checkbox, and a label element for that input. The text of the cell is appended to the label. The text of the cell is removed an the input and label are appended. A [change](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) event is added to the input. In this event, all the cells in the same column are deleted.
 
 ## Thinks I learned
 
@@ -48,6 +49,13 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
    - To check which key triggered the event use [KeyboardEvent Properties](https://www.w3schools.com/jsref/obj_keyboardevent.asp).
 
    - Use the [blur event](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) to detect when an element has lost focus.
+
+   - Use [<input type="checkbox">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) to create a checkbox. You can use [label htmlFor Property](https://www.w3schools.com/jsref/prop_label_htmlfor.asp) to specifie which form element a label is bound to.
+
+   - To delete cells the tableRow [deleteCell()](https://www.w3schools.com/jsref/met_tablerow_deletecell.asp) method comes in handy.
+
+
+
 
  ### Documentation
 

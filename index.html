@@ -411,9 +411,7 @@
                 var rowNo = searchTable.rows.length;
                 var cellNo = searchTable.rows[0].cells.length;
                 for (let i = 0; i < cellNo; ++i) {
-
                     makeCheckBox(searchTable.rows[0].cells[i]);
-
                 }
 
                 function makeCheckBox(obj) {
@@ -431,16 +429,11 @@
                     obj.appendChild(label);
                 }
 
-
-
-
-
                 function deleteColumn(e) {
                     for (let i = searchTable.rows.length - 1; i >= 0; --i) {
                         searchTable.rows[i].deleteCell(e.target.parentNode.cellIndex);
                     }
                 }
-
 
                 document.getElementById("searchInput").addEventListener("input", function () {
                     searchTable = document.getElementById("searchTable");
@@ -469,8 +462,6 @@
                             searchTable.rows[i].style.display = "none";
                         }
                     }
-
-
                 })
             </script>
         </div>
@@ -489,6 +480,47 @@
             </div>
             <script>
                 // Write your code here
+
+                var greenBox = document.getElementById("moveAnimation");
+                var moved = false;
+                function moveRight(obj) {
+                    setTimeout(function () {
+                        obj.style.transition = "all 2s";
+                        obj.style.transitionTimingFunction = "linear"
+                        obj.style.left = "100%";
+                        moved = true;
+                        if (moved == true) {
+                            moveLeft(obj)
+                        }
+                    }, 5000);
+
+                }
+
+                function moveLeft(obj) {
+                    setTimeout(function () {
+                        obj.style.transition = "all 5s";
+                        obj.style.transitionTimingFunction = "linear"
+                        obj.style.left = "0%";
+                        moved = false;
+                        if (moved == false) {
+                            moveRight(obj);
+                        }
+                    }, 2020);
+
+
+                }
+
+
+                /*function updateTransition(){
+
+                 
+                if(moved == false){
+                     moveRight(greenBox);
+                 }else{
+                     moveLeft(greenBox);
+                 }
+                }*/
+                window.onload = moveRight(greenBox);
             </script>
         </div>
         <!-- END OF Part 5 -->
