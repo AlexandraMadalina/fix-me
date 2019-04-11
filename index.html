@@ -539,7 +539,7 @@
 
                 function followMouse() {
                     var distX = mouse.x - trackerPos.x;
-                    trackerPos.x += distX / 5;
+                    trackerPos.x += distX / 10;
                     tracker.style.left = trackerPos.x + "px";
                     requestAnimationFrame(followMouse);
                 }
@@ -558,9 +558,54 @@
                 <br />
 
                 <div id="target"></div>
+
             </div>
             <script>
                 // Write your code here
+                createSlider("target");
+
+                function createSlider(obj) {
+
+                    var sliderContainer = document.getElementById(obj);
+                    var inputLetter = document.createElement("input");
+                    sliderContainer.appendChild(inputLetter);
+
+                    var text;
+                    var addLetterBtn;
+                    makeButton();
+                    inputLetter.onfocus = function () {
+                        sliderContainer.appendChild(addLetterBtn);
+                    }
+
+                    function makeButton() {
+                        addLetterBtn = document.createElement("button");
+                        addLetterBtn.classList.add('mt-4');
+                        addLetterBtn.style.display = "block";
+                        text = document.createTextNode("Add letter.");
+                        addLetterBtn.appendChild(text);
+                        addLetterBtn.onclick = addSlider;
+                    }
+
+                    function addSlider() {
+                        var sliderWrapper = document.createElement('div');
+                        sliderWrapper.style.display = "block";
+                        var slider = document.createElement("input");
+                        slider.type = "range";
+                        slider.min = 65;
+                        slider.max = 90;
+                        slider.value = 65;
+
+                        var span = document.createElement("span");
+                        span.classList.add('mr-3');
+                        sliderWrapper.appendChild(span);
+                        sliderWrapper.appendChild(slider);
+                        sliderContainer.insertBefore(sliderWrapper, addLetterBtn);
+                        slider.oninput = function () {
+                            span.innerHTML = String.fromCharCode(this.value);
+                        }
+                    }
+
+                }
             </script>
         </div>
         <!-- END OF Part 7 -->
@@ -578,6 +623,7 @@
             </div>
             <script>
                 // You can put at most one line here
+                createSlider("target2");
             </script>
         </div>
         <!-- END OF Part 8 -->
