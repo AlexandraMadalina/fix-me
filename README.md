@@ -73,7 +73,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
    - With the [call()](https://www.w3schools.com/Js/js_function_call.asp) method, you can write a method that can be used on different objects.
 
-   - Convert a [unicode](https://www.w3schools.com/charsets/ref_html_utf8.asp) number into a character with [String fromCharCode() Method](https://www.w3schools.com/jsref/jsref_fromcharcode.asp);
+   - Convert a [unicode](https://www.w3schools.com/charsets/ref_html_utf8.asp) number into a character with [string fromCharCode()](https://www.w3schools.com/jsref/jsref_fromcharcode.asp) method;
 
    - Create a [slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp) [with input range object](https://www.w3schools.com/jsref/dom_obj_range.asp);
 
