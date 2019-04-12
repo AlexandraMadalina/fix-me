@@ -581,49 +581,39 @@
                 createSlider("target");
 
                 function createSlider(obj) {
-
                     var sliderContainer = document.getElementById(obj);
-                    var inputName, text, addLetterBtn, slider;
-                    var name = "";
-                   
-                   
-                    inputName = makeInputName();
-                                    
+                    var inputName = makeInputName();
                     sliderContainer.appendChild(inputName);
-                    addLetterBtn = makeButton();
+                    var addLetterBtn = makeButton();
                     inputName.onfocus = function () {
                         sliderContainer.appendChild(addLetterBtn);
                     }
-                    addLetterBtn.onclick = addSlider;
-                    inputName.value = name;
-                          
-
-                    function addSlider() {
-                        var sliderWrapper = document.createElement('div');
-                        slider = document.createElement("input");
-                        var letter = document.createElement("div");
-
-                        style(sliderWrapper, slider, letter);
-                        letter.innerText = String.fromCharCode(slider.value);
-                        sliderWrapper.appendChild(letter);
-                        sliderWrapper.appendChild(slider);
-                        sliderContainer.insertBefore(sliderWrapper, addLetterBtn);
-                        
-                     
-                        var allLetters = sliderContainer.querySelectorAll("div.sliderWrapper > div");
-                        
-                        
-                        slider.oninput = function () {
-                            letter.innerText = String.fromCharCode(this.value);
-                            name += String.fromCharCode(this.value);
-                            //console.log(name);
-                        
-                        }
-                    
-                       
+                    addLetterBtn.onclick = function () {
+                        addSlider(addLetterBtn, sliderContainer, obj);
                     }
+                }
 
+                function addSlider(obj1, obj2, obj3) {
+                    var slider = makeslider();
+                    var letter = makeLetter();
+                    var sliderWrapper = document.createElement('div');
+                    sliderWrapper.classList.add('mt-2', 'sliderWrapper');
+                    letter.innerText = String.fromCharCode(slider.value);
+                    sliderWrapper.appendChild(letter);
+                    sliderWrapper.appendChild(slider);
+                    obj2.insertBefore(sliderWrapper, obj1);
+                    slider.oninput = changeLetter;
+                    //var allLetters = sliderContainer.querySelectorAll("div.sliderWrapper > div");
+                }
 
+                function changeLetter(e) {
+                    var parrent = e.target.parentNode.parentNode;
+                    var firstInput = parrent.querySelector("input");
+                    var letterChild = e.target.previousSibling;
+                    letterChild.innerText = String.fromCharCode(this.value);
+                    var currentLetter = parrent.querySelectorAll("div.sliderWrapper > input");
+                    var index = Array.prototype.indexOf.call(currentLetter, e.target);
+                    console.log(index);
                 }
 
                 function makeInputName() {
@@ -642,15 +632,21 @@
                     return btn;
                 }
 
-                function style(obj1, obj2, obj3) {
-                    obj1.classList.add('mt-2', 'sliderWrapper');
-                    obj2.type = "range";
-                    obj2.min = 65;
-                    obj2.max = 90;
-                    obj2.value = 65;
-                    obj2.classList.add('slider');
-                    obj3.classList.add('mr-3');
-                    obj3.style.width = "1%";
+                function makeslider() {
+                    var sliderInput = document.createElement("input");
+                    sliderInput.type = "range";
+                    sliderInput.min = 65;
+                    sliderInput.max = 90;
+                    sliderInput.value = 65;
+                    sliderInput.classList.add('slider');
+                    return sliderInput;
+                }
+
+                function makeLetter() {
+                    var letterDiv = document.createElement("div");
+                    letterDiv.classList.add('mr-3');
+                    letterDiv.style.width = "1%";
+                    return letterDiv;
                 }
             </script>
         </div>
