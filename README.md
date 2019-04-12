@@ -46,6 +46,13 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
   + To make the box follow the mouse horizontally, I added mousemove event to the box parent. This event updates the mouse position. Using requestAnimationFrame I calculate the distance between the mouse and the box and add it to the box.
 
+### Step 7
+  + In this step I created a slider where the user can write a name by adding letters and change them, without typing.  
+  + I created a function that takes one parameter. This parameter will be the container's id. In this container I added an input element where the name will be displayed. A button will be added when the user clicks inside the input field. When clicking this button, a div element will be created between the button and the input field. 
+  + This div has 2 children. A div element (this will be the letter container) and a input element . The user will be able to choose a letter by moving the slider-thumb. As the slider-thumb is moved, the letter from the div element will be change.
+  + To change the value of the name input, I initiate an empty array before any events. When the button is clicked, the letter inside the letter container will be pushed in this array. This is just to make the array increasing its size with every click. The letter does't matter. The oninput event of the slider will create  an array of all the existing sliders. Then it will take the index of the current slider and change the element from the initial array at the same index as the slider. The  name input value a string of all elemens in this array. This way the user can go anytime to a previous letter and change it.
+  + It was quite challenging to change the style of the sliders without touching the html file or add a css file, because I couldn't find a way to select the slider-thumb pseudo class with Javascript. Instead I injected a style tag inside the html head and  change the innerHtml of thet tag. So in my defence I did not touch anithing outside the <script></script> tags.
+
 ## Things I learned
 
   - When you need to handle text input, use the input event instead. Keyboard events may not be fired if the user is using an alternate means of entering text, such as a handwriting system on a tablet or graphics tablet.
