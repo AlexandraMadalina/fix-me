@@ -562,49 +562,95 @@
             </div>
             <script>
                 // Write your code here
+
+                window.onload = function () {
+                    appendStyle(styles)
+                }
+
+                function appendStyle(styles) {
+                    var css = document.createElement('style');
+                    css.type = 'text/css';
+                    if (css.styleSheet)
+                        css.styleSheet.cssText = styles;
+                    else css.appendChild(document.createTextNode(styles));
+                    document.getElementsByTagName('head')[0].appendChild(css);
+                }
+                var styles =
+                    ' .slider {width:20%;  height: 25px; background: #d3d3d3; -webkit-appearance: none;  outline: none;}.slider::-webkit-slider-thumb{-webkit-appearance: none; appearance: none; width: 25px;  height: 25px; background: black; cursor: pointer;} .sliderWrapper{display: flex;  flex-direction: row; align-items: center;}';
+
                 createSlider("target");
 
                 function createSlider(obj) {
 
                     var sliderContainer = document.getElementById(obj);
-                    var inputLetter = document.createElement("input");
-                    sliderContainer.appendChild(inputLetter);
-
-                    var text;
-                    var addLetterBtn;
-                    makeButton();
-                    inputLetter.onfocus = function () {
+                    var inputName, text, addLetterBtn, slider;
+                    var name = "";
+                   
+                   
+                    inputName = makeInputName();
+                                    
+                    sliderContainer.appendChild(inputName);
+                    addLetterBtn = makeButton();
+                    inputName.onfocus = function () {
                         sliderContainer.appendChild(addLetterBtn);
                     }
-
-                    function makeButton() {
-                        addLetterBtn = document.createElement("button");
-                        addLetterBtn.classList.add('mt-4');
-                        addLetterBtn.style.display = "block";
-                        text = document.createTextNode("Add letter.");
-                        addLetterBtn.appendChild(text);
-                        addLetterBtn.onclick = addSlider;
-                    }
+                    addLetterBtn.onclick = addSlider;
+                    inputName.value = name;
+                          
 
                     function addSlider() {
                         var sliderWrapper = document.createElement('div');
-                        sliderWrapper.style.display = "block";
-                        var slider = document.createElement("input");
-                        slider.type = "range";
-                        slider.min = 65;
-                        slider.max = 90;
-                        slider.value = 65;
+                        slider = document.createElement("input");
+                        var letter = document.createElement("div");
 
-                        var span = document.createElement("span");
-                        span.classList.add('mr-3');
-                        sliderWrapper.appendChild(span);
+                        style(sliderWrapper, slider, letter);
+                        letter.innerText = String.fromCharCode(slider.value);
+                        sliderWrapper.appendChild(letter);
                         sliderWrapper.appendChild(slider);
                         sliderContainer.insertBefore(sliderWrapper, addLetterBtn);
+                        
+                     
+                        var allLetters = sliderContainer.querySelectorAll("div.sliderWrapper > div");
+                        
+                        
                         slider.oninput = function () {
-                            span.innerHTML = String.fromCharCode(this.value);
+                            letter.innerText = String.fromCharCode(this.value);
+                            name += String.fromCharCode(this.value);
+                            //console.log(name);
+                        
                         }
+                    
+                       
                     }
 
+
+                }
+
+                function makeInputName() {
+                    var input = document.createElement("input");
+                    input.style.width = "50%";
+                    input.classList.add('my-2');
+                    return input;
+                }
+
+                function makeButton() {
+                    var btn = document.createElement("button");
+                    btn.classList.add('mt-4');
+                    btn.style.display = "block";
+                    var text = document.createTextNode("Add letter.");
+                    btn.appendChild(text);
+                    return btn;
+                }
+
+                function style(obj1, obj2, obj3) {
+                    obj1.classList.add('mt-2', 'sliderWrapper');
+                    obj2.type = "range";
+                    obj2.min = 65;
+                    obj2.max = 90;
+                    obj2.value = 65;
+                    obj2.classList.add('slider');
+                    obj3.classList.add('mr-3');
+                    obj3.style.width = "1%";
                 }
             </script>
         </div>
