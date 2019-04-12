@@ -71,6 +71,12 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
    - The [pageX](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/pageX) read-only property of the MouseEvent interface returns the X (horizontal) coordinate (in pixels) at which the mouse was clicked.
 
+   - With the [call()](https://www.w3schools.com/Js/js_function_call.asp) method, you can write a method that can be used on different objects.
+
+   - Convert a [unicode](https://www.w3schools.com/charsets/ref_html_utf8.asp) number into a character with [String fromCharCode() Method](https://www.w3schools.com/jsref/jsref_fromcharcode.asp);
+
+   - Create a [slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp) [with input range object](https://www.w3schools.com/jsref/dom_obj_range.asp);
+
 
 
 
@@ -91,5 +97,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
  [JavaScript String Reference](https://www.w3schools.com/jsref/jsref_obj_string.asp).
 
  [Follow Mouse with Easing & Direction](https://codepen.io/redspiderfish/pen/MYmeYz);
+
+ [Get index of e.target child inside eventlistener](https://stackoverflow.com/questions/35384592/get-index-of-e-target-child-inside-eventlistener);
  
 
