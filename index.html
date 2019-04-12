@@ -580,42 +580,53 @@
 
                 createSlider("target");
 
-                function createSlider(obj) {
-                    var sliderContainer = document.getElementById(obj);
+                function createSlider(id) {
+                    var sliderContainer = document.getElementById(id);
                     var inputName = makeInputName();
                     sliderContainer.appendChild(inputName);
                     var addLetterBtn = makeButton();
                     inputName.onfocus = function () {
                         sliderContainer.appendChild(addLetterBtn);
                     }
-                    addLetterBtn.onclick = function () {
-                        addSlider(addLetterBtn, sliderContainer, obj);
+
+                    addLetterBtn.onclick = addSlider;
+                    var arr = [];
+                    
+                    function addSlider() {
+                        var slider = makeslider();
+                        var letter = makeLetter();
+                        var sliderWrapper = document.createElement('div');
+                        sliderWrapper.classList.add('mt-2', 'sliderWrapper');
+                        letter.innerText = String.fromCharCode(slider.value);
+                        sliderWrapper.appendChild(letter);
+                        sliderWrapper.appendChild(slider);
+                        sliderContainer.insertBefore(sliderWrapper, addLetterBtn);
+                        arr.push(letter.innerText);
+                        
+
+                        slider.oninput = function (e) {
+                            letter.innerText = String.fromCharCode(this.value);
+                            var currentLetter = sliderContainer.querySelectorAll("div.sliderWrapper > input");
+                            var index = Array.prototype.indexOf.call(currentLetter, e.target);
+                            console.log(index);
+                            arr[index] = String.fromCharCode(this.value);
+                            inputName.value = arr;
+                        }
+
                     }
                 }
 
-                function addSlider(obj1, obj2, obj3) {
-                    var slider = makeslider();
-                    var letter = makeLetter();
-                    var sliderWrapper = document.createElement('div');
-                    sliderWrapper.classList.add('mt-2', 'sliderWrapper');
-                    letter.innerText = String.fromCharCode(slider.value);
-                    sliderWrapper.appendChild(letter);
-                    sliderWrapper.appendChild(slider);
-                    obj2.insertBefore(sliderWrapper, obj1);
-                    slider.oninput = changeLetter;
-                    //var allLetters = sliderContainer.querySelectorAll("div.sliderWrapper > div");
-                }
 
-                function changeLetter(e) {
+                /*  function changeLetter(e) {
                     var parrent = e.target.parentNode.parentNode;
                     var firstInput = parrent.querySelector("input");
                     var letterChild = e.target.previousSibling;
                     letterChild.innerText = String.fromCharCode(this.value);
                     var currentLetter = parrent.querySelectorAll("div.sliderWrapper > input");
                     var index = Array.prototype.indexOf.call(currentLetter, e.target);
-                    console.log(index);
+                   
                 }
-
+*/
                 function makeInputName() {
                     var input = document.createElement("input");
                     input.style.width = "50%";
