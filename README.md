@@ -17,6 +17,10 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
 ## My approach
 
+### Step 1
+  
+  + I added a event listener to the input. If the input is not empty, the innerHTML of the box will be the same as the innerHTML of the input. If the input is empty, the innerHtml of the box will be another string.
+
 ### Step 2
 
   + After the user inputs his data and press enter,  `keydown`  event will trigger `function enter()`.
@@ -52,6 +56,10 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
   + This div has 2 children. A div element (this will be the letter container) and a input element . The user will be able to choose a letter by moving the slider-thumb. As the slider-thumb is moved, the letter from the div element will be change.
   + To change the value of the name input, I initiate an empty array before any events. When the button is clicked, the letter inside the letter container will be pushed in this array. This is just to make the array increasing its size with every click. The letter does't matter. The oninput event of the slider will create  an array of all the existing sliders. Then it will take the index of the current slider and change the element from the initial array at the same index as the slider. The  name input value wil be a string of all elemens in this array. This way the user can go anytime to a previous letter and change it.
   + It was quite challenging to change the style of the sliders without touching the html file or add a css file, because I couldn't find a way to select the slider-thumb pseudo class with Javascript. Instead I injected a style tag inside the html head and  change the innerHtml of that tag. So in my defence I did not touch anithing outside the <script></script> tags.
+
+### Step 8
+
+  + To make the slider again i call the same function from step 7 but for a different id. The slider will be placed in the div with that id.
 
 ## Things I learned
 
