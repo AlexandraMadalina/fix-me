@@ -133,7 +133,12 @@
                         if (name && pizza && size) {
                             createRow();
                         } else {
-                            alert("Please provide more informations");
+                            if(!name)
+                            toastr.error("Fill in your name");
+                            if(!pizza)
+                            toastr.error("Fill in your pizza choice");
+                            if(!size)
+                            toastr.error("Fill in your chosen size");
                         }
                     }
                 }
