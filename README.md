@@ -85,11 +85,6 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
    - Create a [slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp) with [input range object](https://www.w3schools.com/jsref/dom_obj_range.asp);
 
 
-## Resoults at https://alexandramadalina.github.io/starting-javascript/
-
-
-
-
  ### Documentation
 
  [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -110,5 +105,7 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
 
  [Get index of e.target child inside eventlistener](https://stackoverflow.com/questions/35384592/get-index-of-e-target-child-inside-eventlistener);
  [Customising Cross-Browser Range Inputs with CSS and JavaScript](https://css-tricks.com/custom-interactive-range-inputs/);
+
+### Results at https://alexandramadalina.github.io/starting-javascript/
  
 
