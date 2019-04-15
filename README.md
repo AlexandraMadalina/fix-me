@@ -85,6 +85,9 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
    - Create a [slider](https://www.w3schools.com/howto/howto_js_rangeslider.asp) with [input range object](https://www.w3schools.com/jsref/dom_obj_range.asp);
 
 
+## Resoults at https://alexandramadalina.github.io/starting-javascript/
+
+
 
 
  ### Documentation
