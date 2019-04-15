@@ -576,34 +576,33 @@
                     document.getElementsByTagName('head')[0].appendChild(css);
                 }
                 var styles =
-                    ' .slider {width:20%;  height: 25px; background: #d3d3d3; -webkit-appearance: none;  outline: none;}.slider::-webkit-slider-thumb{-webkit-appearance: none; appearance: none; width: 25px;  height: 25px; background: black; cursor: pointer;} .sliderWrapper{display: flex;  flex-direction: row; align-items: center;}';
+                    ' .slider {width:15%;  height: 13px; background: #d3d3d3; -webkit-appearance: none;  outline: none;}.slider::-webkit-slider-thumb{-webkit-appearance: none; appearance: none; width: 13px;  height: 13px; background: var(--c, black); cursor: context-menu;} .sliderWrapper{display: flex;  flex-direction: row; align-items: center;}';
 
                 createSlider("target");
 
                 function createSlider(id) {
                     var sliderContainer = document.getElementById(id);
+                    var text = document.createElement('span');
+                    text.innerText = "Enter your first name:";
+                    sliderContainer.appendChild(text);
                     var inputName = makeInputName();
                     sliderContainer.appendChild(inputName);
                     var addLetterBtn = makeButton();
                     inputName.onfocus = function () {
                         sliderContainer.appendChild(addLetterBtn);
                     }
-
                     addLetterBtn.onclick = addSlider;
                     var arr = [];
-
                     function addSlider() {
                         var slider = makeslider();
                         var letter = makeLetter();
                         var sliderWrapper = document.createElement('div');
-                        sliderWrapper.classList.add('mt-2', 'sliderWrapper');
+                        sliderWrapper.classList.add('sliderWrapper');
                         letter.innerText = String.fromCharCode(slider.value);
                         sliderWrapper.appendChild(letter);
                         sliderWrapper.appendChild(slider);
                         sliderContainer.insertBefore(sliderWrapper, addLetterBtn);
                         arr.push(letter.innerText);
-
-
                         slider.oninput = function (e) {
                             letter.innerText = String.fromCharCode(this.value);
                             var currentLetter = sliderContainer.querySelectorAll("div.sliderWrapper > input");
@@ -611,27 +610,47 @@
                             arr[index] = String.fromCharCode(this.value);
                             inputName.value = arr.join('');
                         }
-
+                        slider.onmouseover = function (e) {
+                            e.target.style.setProperty('--c', '#007bff');
+                            e.target.style.background = "rgba(211, 211, 211, 0.8)";
+                        }
+                        slider.onmouseout = function (e) {
+                            e.target.style.setProperty('--c', 'black');
+                            e.target.style.background = "#d3d3d3";
+                        }
                     }
                 }
-
-
                 function makeInputName() {
                     var input = document.createElement("input");
-                    input.style.width = "50%";
+                    input.style.width = "30%";
                     input.classList.add('my-2');
+                    input.style.display = "block";
                     return input;
                 }
-
                 function makeButton() {
                     var btn = document.createElement("button");
                     btn.classList.add('mt-4');
                     btn.style.display = "block";
                     var text = document.createTextNode("Add letter.");
+                    btn.style.cursor = ("context-menu");
                     btn.appendChild(text);
+                    btn.onmouseenter = function () {
+                        btn.style.background = "#a5f3fe";
+                        btn.style.borderColor = "#279fd9";
+                    }
+                    btn.onmouseleave = function () {
+                        btn.style.backgroundColor = "";
+                        btn.style.borderColor = "";
+                    }
+                    btn.onmousedown = function () {
+                        btn.style.background = "#34b4e2";
+                    }
+                    btn.onmouseup = function () {
+                        btn.style.background = "";
+                        btn.style.borderColor = "";
+                    }
                     return btn;
                 }
-
                 function makeslider() {
                     var sliderInput = document.createElement("input");
                     sliderInput.type = "range";
@@ -641,7 +660,6 @@
                     sliderInput.classList.add('slider');
                     return sliderInput;
                 }
-
                 function makeLetter() {
                     var letterDiv = document.createElement("div");
                     letterDiv.classList.add('mr-3');

@@ -99,5 +99,6 @@ I followed this exercises during my training as JuniorWeb Developer at BeCode in
  [Follow Mouse with Easing & Direction](https://codepen.io/redspiderfish/pen/MYmeYz);
 
  [Get index of e.target child inside eventlistener](https://stackoverflow.com/questions/35384592/get-index-of-e-target-child-inside-eventlistener);
+ [Customising Cross-Browser Range Inputs with CSS and JavaScript](https://css-tricks.com/custom-interactive-range-inputs/);
  
 
